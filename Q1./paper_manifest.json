@@ -1,0 +1,77 @@
+{
+  "问题": "问题一：仅考虑一次反射和透射的外延层厚度测量数学模型",
+  "范围声明": "仅建立两光束理论模型，不读取附件数据，不输出具体厚度，不展开问题二或问题三。",
+  "采用方法": "斯涅尔定律 + 薄膜两光束干涉 + 等效光学波数线性化 + 相邻同类极值差分/回归接口",
+  "main": {
+    "正文公式": [
+      "有效光程差 DeltaL=2d*sqrt[n(sigma)^2-n0^2*sin^2(theta0)]",
+      "总相位差 delta=4*pi*d*x+phi_r",
+      "两光束反射率 R=A+B*cos(delta)+epsilon",
+      "相邻同类极值 d=1/[2*(x_(m+1)-x_m)]"
+    ],
+    "正文图片": [
+      "图1_两光束干涉光路示意图.png",
+      "图2_理论干涉条纹关系示意图.png"
+    ],
+    "正文表格": [
+      "问题一模型说明.xlsx/核心公式"
+    ]
+  },
+  "supporting": [
+    "问题一模型说明.xlsx/符号说明",
+    "问题一模型说明.xlsx/模型假设",
+    "问题一模型说明.xlsx/建模流程",
+    "问题一模型说明.xlsx/适用范围与局限"
+  ],
+  "appendix_diagnostic": [
+    "问题一诊断日志.txt",
+    "问题一模型说明.xlsx/论文素材索引"
+  ],
+  "关键符号": [
+    "d",
+    "lambda",
+    "sigma",
+    "theta0",
+    "theta1",
+    "n0",
+    "n(sigma)",
+    "phi_r",
+    "x",
+    "R(sigma)"
+  ],
+  "关键参数元数据": [
+    {
+      "name": "入射角theta0",
+      "role": "决定折射角与等效光学波数",
+      "why_required": "入射几何影响有效光程差",
+      "provenance": "given",
+      "selection_rule": "由实验设置给定；问题一仅保留符号",
+      "decision_effect": "角度误差会传递至厚度反演",
+      "unresolved_user_choice": false
+    },
+    {
+      "name": "折射率函数n(sigma)",
+      "role": "描述色散并将波数转换为等效光学波数",
+      "why_required": "几何厚度与折射率共同决定相位",
+      "provenance": "assumed",
+      "selection_rule": "实际应用需由可靠光学数据、Cauchy/Sellmeier或含Drude修正的模型确定",
+      "decision_effect": "模型误差直接造成厚度系统误差",
+      "unresolved_user_choice": true
+    },
+    {
+      "name": "反射附加相位phi_r",
+      "role": "描述界面反射半波损失的相对相位",
+      "why_required": "确定峰谷的绝对级次对应",
+      "provenance": "derived",
+      "selection_rule": "由界面折射率关系判断；常数时可被差分/截距吸收",
+      "decision_effect": "若随波数变化会造成系统偏差",
+      "unresolved_user_choice": false
+    }
+  ],
+  "建议方案": "正文采用含n(sigma)的等效光学波数模型；常折射率公式仅作窄波段机理说明。",
+  "限制": [
+    "单角度且折射率未知时，通常只能识别光学厚度。",
+    "两光束近似要求后续多次反射可忽略。",
+    "吸收、粗糙度、厚度不均匀和相位色散可能破坏理想条纹。"
+  ]
+}
