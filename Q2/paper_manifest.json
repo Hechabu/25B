@@ -1,0 +1,57 @@
+{
+  "problem": "问题二：碳化硅外延层厚度计算与可靠性分析",
+  "adopted_method": "SG平滑—背景去除—FFT初始化—峰谷回归—Hilbert相位—双角度Huber联合拟合",
+  "recommended_scheme": "双角度联合相位估计",
+  "effective_band_cm-1": [
+    2100.0,
+    3800.0
+  ],
+  "recommended_thickness_um": 7.4685514566990285,
+  "recommended_interval_um": [
+    7.431144486235242,
+    7.506338139546326
+  ],
+  "main": [
+    {
+      "artifact": "题目答案汇总",
+      "type": "excel_sheet",
+      "purpose": "直接回答单角度、联合厚度与不确定性"
+    },
+    {
+      "artifact": "图4_不同方法厚度结果与不确定性比较.png",
+      "type": "figure",
+      "purpose": "比较六种单角度方法与联合结果"
+    }
+  ],
+  "supporting": [
+    {
+      "artifact": "图3_等效光学波数与干涉级次回归结果.png",
+      "type": "figure",
+      "purpose": "验证x_i与极值序号近似线性"
+    },
+    {
+      "artifact": "图1_碳化硅晶圆原始反射光谱及有效波段.png",
+      "type": "figure",
+      "purpose": "说明异常点、屏蔽区与有效波段"
+    }
+  ],
+  "appendix_diagnostic": [
+    "图2_光谱预处理与峰谷检测结果.png",
+    "Bootstrap结果",
+    "敏感性分析",
+    "诊断指标",
+    "问题二诊断日志.txt"
+  ],
+  "key_symbols": {
+    "d": "外延层厚度",
+    "sigma": "真空波数",
+    "x_j": "等效光学波数",
+    "theta_j": "入射角",
+    "n_sigma": "折射率色散函数"
+  },
+  "limitations": [
+    "题目未给出晶型、晶向、偏振、掺杂和温度；固定4H-SiC普通光模型属于有来源的建模假设。",
+    "两光束模型不修正多光束干涉",
+    "Bootstrap主要反映统计误差，系统误差通过敏感性包络补充"
+  ]
+}
